@@ -1,0 +1,8 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="Themes">
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Teal</item>
+    </string-array>
+</resources>

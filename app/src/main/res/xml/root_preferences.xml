@@ -1,0 +1,40 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/display_header">
+
+        <!--<SwitchPreferenceCompat
+            app:key="@string/pref_dark"
+            app:defaultValue="false"
+            app:title="@string/enable_dark_mode" />-->
+
+        <SwitchPreferenceCompat
+            app:key="@string/pref_grid_view"
+            app:defaultValue="false"
+            app:title="@string/enable_grid_view" />
+
+        <SwitchPreferenceCompat
+            app:key="@string/pref_date"
+            app:defaultValue="true"
+            app:title="@string/show_last_edited"
+            app:summary="Display date in editor screen"/>
+
+        <ListPreference
+            app:defaultValue="Deep Purple"
+            app:entries="@array/Themes"
+            app:entryValues="@array/Themes"
+            app:key="@string/pref_theme"
+            app:title="@string/select_theme"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/about_header">
+
+        <Preference
+            app:title="@string/build_version"
+            app:key="build_version"
+            app:summary="@string/build" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

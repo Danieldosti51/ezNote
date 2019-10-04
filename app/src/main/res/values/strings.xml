@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ezNote</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_delete">Delete</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="display_header">Display</string>
+    <string name="about_header">About</string>
+
+    <!-- Display Preferences -->
+    <string name="select_theme">Select Theme</string>
+    <string name="enable_grid_view">Enable Grid View</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="show_last_edited">Show Last Edited</string>
+
+    <!-- About Preferences -->
+    <string name="build_version">Build version</string>
+    <string name="build">1.0</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_editor">EditorActivity</string>
+    <string name="title">Title</string>
+    <string name="note">Note</string>
+    <string name="pref_dark">pref_dark</string>
+    <string name="pref_grid_view">pref_grid_view</string>
+    <string name="pref_date">pref_date</string>
+    <string name="pref_theme">pref_theme</string>
+</resources>

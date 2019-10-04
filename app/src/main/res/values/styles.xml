@@ -1,0 +1,40 @@
+<resources>
+
+    <style name="AppThemePurple" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#673ab7</item>
+        <item name="colorPrimaryDark">#320b86</item>
+        <item name="colorAccent">#9a67ea</item>
+    </style>
+
+    <style name="AppThemePurple.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeIndigo" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#3f51b5</item>
+        <item name="colorPrimaryDark">#002984</item>
+        <item name="colorAccent">#757de8</item>
+    </style>
+
+    <style name="AppThemeIndigo.NoActionBar" parent="AppThemeIndigo">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeTeal" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#009688</item>
+        <item name="colorPrimaryDark">#00675b</item>
+        <item name="colorAccent">#52c7b8</item>
+    </style>
+
+    <style name="AppThemeTeal.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

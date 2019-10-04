@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="selectedColor" format="color"/>
+    <attr name="noteTitleColor" format="color"/>
+    <attr name="noteTextColor" format="color"/>
+    <attr name="noteFocusedColor" format="color"/>
+    <attr name="noteBackgroundColor" format="color"/>
+</resources>
