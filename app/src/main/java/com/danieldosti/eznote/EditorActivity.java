@@ -3,7 +3,6 @@ package com.danieldosti.eznote;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.danieldosti.eznote.database.NoteEntity;
 import com.danieldosti.eznote.viewmodel.EditorViewModel;
 
 import androidx.annotation.NonNull;
@@ -20,7 +19,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.danieldosti.eznote.utilities.Constants.NOTE_ID_KEY;
+import static com.danieldosti.eznote.utilities.Constants.*;
 
 public class EditorActivity extends AppCompatActivity {
 
@@ -35,6 +34,7 @@ public class EditorActivity extends AppCompatActivity {
 
     private EditorViewModel mViewModel;
     private boolean mNewNote;
+    private boolean mEditing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class EditorActivity extends AppCompatActivity {
         mViewModel = ViewModelProviders.of(this).get(EditorViewModel.class);
 
         mViewModel.mLiveNote.observe(this, noteEntity -> {
-            if (noteEntity != null) {
+            if (noteEntity != null && !mEditing) {
                 noteText.setText(noteEntity.getText());
                 noteTitle.setText(noteEntity.getTitle());
                 if(preferences.getBoolean(getString(R.string.pref_date),true)){
@@ -103,7 +103,7 @@ public class EditorActivity extends AppCompatActivity {
             saveAndReturn();
             return true;
         } else if(item.getItemId() == R.id.action_delete){
-            NoteEntity note = mViewModel.deleteNote();
+            mViewModel.deleteNote();
             Toast.makeText(this, "Note Deleted", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -119,9 +119,19 @@ public class EditorActivity extends AppCompatActivity {
         int result = mViewModel.saveNote(noteText.getText().toString(), noteTitle.getText().toString());
         if(result == 1) {
             Toast.makeText(this, "Empty note, discarded", Toast.LENGTH_SHORT).show();
-        } else if(result == 2) {
-            Toast.makeText(this, "Note saved", Toast.LENGTH_SHORT).show();
         }
         finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putBoolean(EDITING_KEY, true);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        mEditing = savedInstanceState.getBoolean(EDITING_KEY);
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
