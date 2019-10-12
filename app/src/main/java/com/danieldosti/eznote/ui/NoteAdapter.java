@@ -48,7 +48,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         holder.mTitleView.setText(note.getTitle());
         holder.mButton.setOnClickListener(v -> {
             Intent editorIntent = new Intent(mContext, EditorActivity.class);
-            editorIntent.putExtra(NOTE_ID_KEY,note.getId());
+            editorIntent.putExtra(NOTE_ID_KEY, note.getId());
             mContext.startActivity(editorIntent);
         });
     }

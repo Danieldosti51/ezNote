@@ -8,7 +8,6 @@ import com.danieldosti.eznote.database.NoteEntity;
 import com.danieldosti.eznote.ui.NoteAdapter;
 import com.danieldosti.eznote.viewmodel.MainViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
