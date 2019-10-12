@@ -50,17 +50,6 @@ public class AppRepository {
         executor.execute(() -> mDb.noteDao().deleteNote(note));
     }
 
-    public int getCount() {
-        try {
-            Callable<Integer> task = () -> mDb.noteDao().getCount();
-            Future<Integer> result = executor.submit(task);
-            return result.get();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-            return -1;
-        }
-    }
-
     public int getMaxPos() {
         try {
             Callable<Integer> task = () -> mDb.noteDao().getMaxPos();

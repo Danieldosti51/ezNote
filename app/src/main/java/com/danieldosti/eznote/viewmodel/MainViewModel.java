@@ -30,12 +30,8 @@ public class MainViewModel extends AndroidViewModel {
         mRepo.delete(note);
     }
 
-    public void insertNote(NoteEntity note) {
-        mRepo.insertNote(note);
-    }
-
     public LiveData<List<NoteEntity>> searchFor(String query) {
-        query = "%"+query+"%";
+        query = "%"+query+"%";  //query string wrapped by % wildcard for noteDAO
         return mRepo.searchFor(query);
     }
 }

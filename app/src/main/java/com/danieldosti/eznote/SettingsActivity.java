@@ -26,7 +26,10 @@ public class SettingsActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        initListener();
+    }
 
+    private void initListener() {
         listener = (prefs, key) -> {
             if (!key.equals(getString(R.string.pref_date))) {
                 Toast.makeText(this,

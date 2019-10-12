@@ -44,11 +44,11 @@ public class EditorViewModel extends AndroidViewModel {
         return note;
     }
 
-    public int saveNote(String text, String title) {
+    public boolean saveNote(String text, String title) {
         NoteEntity note = mLiveNote.getValue();
         if (note != null) {
             if((note.getText().equals(text)) && (note.getTitle().equals(title))){
-                return 0;
+                return false;   //no changes
             }
             note.setText(text);
             note.setTitle(title);
@@ -56,16 +56,12 @@ public class EditorViewModel extends AndroidViewModel {
             note.setEdited(true);
         } else {
             if(TextUtils.isEmpty(text.trim()) && TextUtils.isEmpty(title.trim())){
-                return 1;
+                return true;    //empty note
             }
             note = new NoteEntity(mRepo.getMaxPos()+1, title.trim(), text.trim(), new Date());
         }
         mRepo.insertNote(note);
-        return 2;
-    }
-
-    public void insertNote(NoteEntity note) {
-        mRepo.insertNote(note);
+        return false;
     }
 
     public String formatDate(Date date, boolean edited) {

@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -78,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViewModel() {
-
-        final Observer<List<NoteEntity>> observer = noteEntities -> {
+        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mViewModel.mNotes.observe(this, noteEntities -> {
             mNotes.clear();
             mNotes.addAll(noteEntities);
 
@@ -89,10 +88,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 mAdapter.notifyDataSetChanged();
             }
-        };
-
-        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        mViewModel.mNotes.observe(this, observer);
+        });
     }
 
     private void initRecyclerView() {

@@ -102,7 +102,7 @@ public class EditorActivity extends AppCompatActivity {
         if(item.getItemId() == android.R.id.home){
             saveAndReturn();
             return true;
-        } else if(item.getItemId() == R.id.action_delete){
+        } else if(item.getItemId() == R.id.action_delete) {
             mViewModel.deleteNote();
             Toast.makeText(this, "Note Deleted", Toast.LENGTH_SHORT).show();
             finish();
@@ -116,8 +116,8 @@ public class EditorActivity extends AppCompatActivity {
     }
 
     private void saveAndReturn() {
-        int result = mViewModel.saveNote(noteText.getText().toString(), noteTitle.getText().toString());
-        if(result == 1) {
+        boolean isEmpty = mViewModel.saveNote(noteText.getText().toString(), noteTitle.getText().toString());
+        if(isEmpty) {
             Toast.makeText(this, "Empty note, discarded", Toast.LENGTH_SHORT).show();
         }
         finish();

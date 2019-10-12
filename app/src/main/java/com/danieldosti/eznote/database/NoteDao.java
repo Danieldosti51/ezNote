@@ -28,9 +28,6 @@ public interface NoteDao {
     @Query("SELECT MAX(position) from notes")
     int getMaxPos();
 
-    @Query("SELECT COUNT(id) from notes")
-    int getCount();
-
     @Query("SELECT * FROM notes ORDER BY position DESC")
     LiveData<List<NoteEntity>> getAllNotes();
 
