@@ -78,6 +78,10 @@ public class EditorActivity extends AppCompatActivity {
             }
         });
 
+        initExtras();
+    }
+
+    private void initExtras() {
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
             setTitle("New Note");
