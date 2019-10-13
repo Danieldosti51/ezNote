@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
                 ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 int fromPosition = viewHolder.getAdapterPosition();
@@ -202,6 +203,8 @@ public class MainActivity extends AppCompatActivity {
                 super.clearView(recyclerView, viewHolder);
                 mViewModel.update(mNotes);
             }
+
         });
+
     }
 }
