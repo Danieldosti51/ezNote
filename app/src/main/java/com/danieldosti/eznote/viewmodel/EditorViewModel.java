@@ -65,17 +65,25 @@ public class EditorViewModel extends AndroidViewModel {
     }
 
     public String formatDate(Date date, boolean edited) {
-        String result;
         Calendar calendar = Calendar.getInstance();
         int currentYear = calendar.get(Calendar.YEAR);
         int currentDay = calendar.get(Calendar.DAY_OF_YEAR);
+
         calendar.setTime(date);
         int noteYear = calendar.get(Calendar.YEAR);
         int noteDay = calendar.get(Calendar.DAY_OF_YEAR);
+
+        String result = getDateString(currentYear, currentDay, noteYear, noteDay, date);
+        if(edited) result = "Edited " + result;
+        return result;
+    }
+
+    private String getDateString(int currentYear, int currentDay, int noteYear, int noteDay, Date date) {
+        String result;
         if(noteDay == currentDay && currentYear == noteYear){
             DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
             result = dateFormat.format(date);
-        } else if(noteDay+1 == currentDay && currentYear == noteYear) {
+        } else if(noteDay + 1 == currentDay && currentYear == noteYear) {
             DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
             result = "Yesterday, " + dateFormat.format(date);
         } else if(currentYear == noteYear) {
@@ -84,9 +92,6 @@ public class EditorViewModel extends AndroidViewModel {
         } else {
             DateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH);
             result = dateFormat.format(date);
-        }
-        if(edited){
-            result = "Edited " + result;
         }
         return result;
     }
