@@ -194,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
                 int pos = viewHolder.getAdapterPosition();
                 NoteEntity note = mNotes.get(pos);
                 mViewModel.delete(note);
-                mAdapter.notifyItemRemoved(pos);
                 Toast.makeText(MainActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
             }
 
