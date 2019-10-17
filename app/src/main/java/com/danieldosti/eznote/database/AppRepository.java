@@ -30,11 +30,11 @@ public class AppRepository {
         mNotes = getAllNotes();
     }
 
-    private LiveData<List<NoteEntity>> getAllNotes(){
+    private LiveData<List<NoteEntity>> getAllNotes() {
         return mDb.noteDao().getAllNotes();
     }
 
-    public NoteEntity getNoteByID(int ID){
+    public NoteEntity getNoteByID(int ID) {
         return mDb.noteDao().getNoteByID(ID);
     }
 
@@ -42,7 +42,7 @@ public class AppRepository {
         executor.execute(() -> mDb.noteDao().InsertNote(note));
     }
 
-    public void update(List<NoteEntity> noteEntities){
+    public void update(List<NoteEntity> noteEntities) {
         executor.execute(() -> mDb.noteDao().update(noteEntities));
     }
 
