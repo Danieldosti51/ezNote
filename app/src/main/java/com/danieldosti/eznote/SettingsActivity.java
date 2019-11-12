@@ -11,6 +11,7 @@ import androidx.preference.PreferenceManager;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    //listener is garbage collected when local
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override
