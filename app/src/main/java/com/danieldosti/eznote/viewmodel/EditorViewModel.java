@@ -36,10 +36,9 @@ public class EditorViewModel extends AndroidViewModel {
         });
     }
 
-    public NoteEntity deleteNote() {
+    public void deleteNote() {
         NoteEntity note = mLiveNote.getValue();
-        mRepo.delete(mLiveNote.getValue());
-        return note;
+        mRepo.delete(note);
     }
 
     public boolean saveNote(String text, String title) {
